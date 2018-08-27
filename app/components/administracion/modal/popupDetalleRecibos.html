@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <title>Detalle de recibos</title>
+</head>
+
+<body>
+    <div data-ng-init="vm.init()" class="row">
+        <div class="col-md-11 col-centered">
+            <h2>Lista de recibos</h2>
+        </div>
+        <div class="row" style="padding-left: 55px;">
+            <div class="col-md-6">
+                <span>Nombre:
+                    <b>{{vm.Empleado.Nombre}}</b>
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>CUIL/CUIT:
+                    <b>{{vm.Empleado.CUITCUIL}}</b>
+                </span>
+            </div>
+        </div>
+        <br />
+        <div class="row" style="padding-left: 55px;">
+            <div class="col-md-6">
+                <span>Domicilio:
+                    <b>{{vm.Empleado.Direccion}}</b>
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>Teléfono:
+                    <b>{{vm.Empleado.Telefono}}</b>
+                </span>
+            </div>
+        </div>
+        <br />
+        <div class="col-md-11 col-centered">
+            <div class="panel panel-info">
+                <div class="panel-heading">Seleccionar período</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Año:</label>
+                            <input type="text" class="form-control" ng-model="Filters.yearFilter">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Mes:</label>
+                            <select class="form-control" ng-options="month as month.name for month in MonthList" ng-model="Filters.monthFilter"></select>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Código de búsqueda:</label>
+                            <input type="text" class="form-control" ng-model="SearchCode" ng-readonly="true">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-centered">
+                            <button class="btn btn-primary pull-right" ng-click="vm.getReciboList()">Buscar recibos</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row" style="padding: 0 16px;">
+                        <div class="col-md-12 recibo-list-container">
+                            <div class="recibo-container" ng-repeat="recibo in vm.ReciboPorEmpleadoList">
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="recibo-item-pdf" ng-click="vm.OpenReciboModal(recibo)">
+                                            <span>
+                                               <div class="invoice-img" title="Abrir PDF"></div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-3 recibo-item-title">Código concepto:</div>
+                                            <div class="col-md-9 recibo-item-value">
+                                                <b>{{recibo.CodigoConcepto}}</b>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-3 recibo-item-title">Empresa:</div>
+                                            <div class="col-md-3 recibo-item-value">
+                                                <b>{{recibo.Empresa}}</b>
+                                            </div>
+                                            <div class="col-md-3 recibo-item-title">Monto:</div>
+                                            <div class="col-md-3 recibo-item-value">
+                                                <b>${{recibo.Monto}}</b>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-4 recibo-item-title">Descripción del concepto:</div>
+                                            <div class="col-md-8 recibo-item-value">{{recibo.DescripcionConcepto}}</div>
+                                        </div>
+                                        <br />
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-centered">
+                <button class="btn btn-primary pull-right" ng-click="vm.cancel()" style="margin-right: 54px;margin-bottom: 19px;">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</body>

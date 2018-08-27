@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Gestión de trámites</title>
+    <div ng-include ng-controller="headerController as header" src="'app/components/main/header.html'"></div>
+</head>
+
+<body>
+    <div data-ng-init="vm.init()" class="row">
+        <div class="col-md-11 col-centered">
+            <h2>Empleados</h2>
+        </div>
+        <div class="col-md-11 col-centered">
+
+            <div class="panel panel-info">
+                <div class="panel-heading"></div>
+                <div class="panel-body collapsable">
+                    <div class="row">
+                        <div class="col-md-12 col-centered">
+                            <div id="administracionGrid">
+
+                                <table id="reciboList_ResultTable" data-search="true" data-striped="true" data-filter-control="true" bs-table-control="bsTableControl">
+                                    <thead>
+                                        <tr>
+                                            <!--<th data-checkbox="false"></th>-->
+                                            <th data-field="Legajo" data-visible="false" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Legajo</th>
+                                            <th data-field="Nombre" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Nombre</th>
+                                            <th data-field="CUITCUIL" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">CUIT/CUIL</th>
+                                            <th data-field="Sexo" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Sexo</th>
+                                            <th data-field="Direccion" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Dirección</th>
+                                            <th data-field="Telefono" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Teléfono</th>
+                                            <th data-field="Celular" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Celular</th>
+                                            <th data-field="EstadoCivil" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Estado civil</th>
+                                            <th data-field="Email" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Email</th>
+                                            <th data-field="DNI" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">DNI</th>
+                                            <th data-field="FechaIngreso" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Fecha de ingreso</th>
+                                            <th data-field="CentroCosto" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Centro de costo</th>
+                                            <th data-field="Categoria" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Categoria</th>
+                                            <th data-field="Cargo" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Cargo</th>
+                                            <th data-field="Convenio" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Convenio</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
