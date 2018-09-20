@@ -135,7 +135,7 @@
                         $cookies.put('token', $rootScope.token, { expires: now });
                         $cookies.put('user', $sessionStorage.user.name, { expires: now });
 
-                        $location.path("/home");
+                        $location.path("/EstadisticasGenerales");
                     }
                     else {
                         $sessionStorage.user = null;

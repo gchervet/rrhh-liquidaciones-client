@@ -8,7 +8,7 @@ var app = angular.module("app", [
 ]);
 
 app.constant('myUrl', {
-    base: "http://10.9.0.112:18725/" //Url base de WebApi
+    base: "http://localhost:18725/" //Url base de WebApi
 });
 
 app.config(['$qProvider', '$routeProvider', '$stateProvider', '$urlRouterProvider',

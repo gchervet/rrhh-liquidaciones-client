@@ -1,31 +1,31 @@
 angular.module('app')
-    .controller('ausentismoListController', function ($rootScope, Auth, utilityService) {
+    .controller('vacacionesController', function ($rootScope, Auth, utilityService) {
 
-        var ausentismoListController = this;
+        var vacacionesController = this;
 
         // Setting socket
         var socket = io($rootScope.WEB_SOCKET_URL);
 
         // Setting selected items
-        ausentismoListController.selectedLegajo = null;
-        ausentismoListController.legajo = '';
-        ausentismoListController.tramiteAGenerar = {};
+        vacacionesController.selectedLegajo = null;
+        vacacionesController.legajo = '';
+        vacacionesController.tramiteAGenerar = {};
 
         // Setting text items    
-        ausentismoListController.legajoSearchText = null;
+        vacacionesController.legajoSearchText = null;
 
-        ausentismoListController.init = function () {
+        vacacionesController.init = function () {
 
             Auth.tokenCookieExists();
-            ausentismoListController.loadLists();
+            vacacionesController.loadLists();
 
         };
 
-        ausentismoListController.loadLists = function () {
-            ausentismoListController.loadAusentismoList();
+        vacacionesController.loadLists = function () {
+            vacacionesController.loadAusentismoList();
         }
 
-        ausentismoListController.loadAusentismoList = function () {
+        vacacionesController.loadAusentismoList = function () {
 
             var process_getAusentismoList_request = function () {
                 utilityService.callSecureHttp({

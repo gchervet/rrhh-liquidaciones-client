@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Ganancias</title>
+    <div ng-include ng-controller="headerController as header" src="'app/components/main/header.html'"></div>
+</head>
+
+<body>
+    <div data-ng-init="vm.init()" class="row">
+        <div class="col-md-11 col-centered">
+            <h2>Ganancias</h2>
+        </div>
+        <div class="col-md-11 col-centered">
+
+            <div class="panel panel-info">
+                <div class="panel-heading"></div>
+                <div class="panel-body collapsable">
+                    <div class="row">
+                        <div class="col-md-12 col-centered">
+                            <div id="administracionGrid">
+
+                                <table id="ausentismoList_ResultTable" data-search="true" data-striped="true" data-filter-control="true" bs-table-control="bsTableControl">
+                                    <thead>
+                                        <tr>
+                                            <!--<th data-checkbox="false"></th>-->
+                                            <th data-field="Codigo" data-visible="false" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Código</th>
+                                            <th data-field="Usuario" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Usuario</th>
+                                            <th data-field="FechaIni" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Fecha inicio</th>
+                                            <th data-field="FechaFin" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Fecha fin</th>
+                                            <th data-field="Dias" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Cant. días</th>
+                                            <th data-field="Dtipo" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Tipo</th>
+                                            <th data-field="Dcausal" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Causal</th>
+                                            <th data-field="Detalle" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Detalle</th>
+                                            <th data-field="Medico" data-filter-control="input" data-sortable="true" data-filter-control-placeholder="Buscar">Médico</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

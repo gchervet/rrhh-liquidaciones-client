@@ -25,6 +25,12 @@
             controller: 'userProfileController as vm',
             requiresAuthentication: true
         })
+        /* ESTADISTICAS GENERALES */
+        .when('/EstadisticasGenerales', {
+            templateUrl: server_prefix + 'app/components/administracion/estadisticasGenerales.html',
+            controller: 'estadisticasGeneralesController as vm',
+            requiresAuthentication: true
+        })       
         /* RECIBOS */
         .when('/Recibos', {
             templateUrl: server_prefix + 'app/components/administracion/reciboList.html',
@@ -32,11 +38,45 @@
             requiresAuthentication: true
         })        
         /* AUSENTISMO */
-        .when('/Ausencias', {
-            templateUrl: server_prefix + 'app/components/administracion/ausentismoList.html',
-            controller: 'ausentismoListController as vm',
+        .when('/Ausentismo', {
+            templateUrl: server_prefix + 'app/components/administracion/ausentismo.html',
+            controller: 'ausentismoController as vm',
             requiresAuthentication: true
-        })       
+        })          
+        /* AUSENTISMO */
+        .when('/Bajas', {
+            templateUrl: server_prefix + 'app/components/administracion/bajas.html',
+            controller: 'bajasController as vm',
+            requiresAuthentication: true
+        })          
+        /* AUSENTISMO */
+        .when('/Novedades', {
+            templateUrl: server_prefix + 'app/components/administracion/novedades.html',
+            controller: 'novedadesController as vm',
+            requiresAuthentication: true
+        })          
+        /* AUSENTISMO */
+        .when('/Ganancias', {
+            templateUrl: server_prefix + 'app/components/administracion/ganancias.html',
+            controller: 'gananciasController as vm',
+            requiresAuthentication: true
+        })          
+        /* AUSENTISMO */
+        .when('/Vacaciones', {
+            templateUrl: server_prefix + 'app/components/administracion/vacaciones.html',
+            controller: 'vacacionesController as vm',
+            requiresAuthentication: true
+        })           
+        .when('/Legajos', {
+            templateUrl: server_prefix + 'app/components/administracion/legajos.html',
+            controller: 'legajosController as vm',
+            requiresAuthentication: true
+        })     
+        .when('/Reporte', {
+            templateUrl: server_prefix + 'app/components/administracion/reporte.html',
+            controller: 'reporteController as vm',
+            requiresAuthentication: true
+        })    
         /* DEFAULT */
         .otherwise({ redirectTo: "home" });
 
@@ -58,7 +98,7 @@ app.run(['myUrl', '$rootScope', '$location', 'Auth', 'blockUIConfig',
         // Setting service url
         $rootScope.myUrl = myUrl;
 
-        $rootScope.WEB_SOCKET_URL = "http://10.9.0.112:9009";
+        $rootScope.WEB_SOCKET_URL = "http://localhost:9009";
         
         /* Setting global variables */
         // 4.Client\app\components\indicadoresDePermanencia\indicadoresDePermanencia.html

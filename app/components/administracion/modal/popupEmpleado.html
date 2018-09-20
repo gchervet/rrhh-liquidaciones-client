@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>{{vm.action}} empleado</strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Legajo</h4>
+                            <input type="text" class="modal-input-text" placeholder="Legajo" ng-model="vm.Data.Legajo" />
+                        </div>
+                        <div class="col-md-6">
+                            <h4>CUIL / CUIT</h4>
+                            <input type="text" class="modal-input-text" placeholder="CUIL / CUIT" ng-model="vm.Data.CUILCUIT" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Nombre completo</h4>
+                            <input type="text" class="modal-input-text" placeholder="Nombre completo" ng-model="vm.Data.NombreCompleto" />
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Fecha de nacimiento</h4>
+                            <input type="text" class="modal-input-text" placeholder="Fecha de nacimiento" ng-model="vm.Data.FechaNacimiento" />
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                            <div class="col-md-6">
+                                <h4>Teléfono</h4>
+                                <input type="text" class="modal-input-text" placeholder="Teléfono" ng-model="vm.Data.Telefono" />
+                            </div>
+                            <div class="col-md-6">
+                                <h4>E-mail</h4>
+                                <input type="text" class="modal-input-text" placeholder="Email" ng-model="vm.Data.Email" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Obra social</h4>
+                                <input type="text" class="modal-input-text" placeholder="Obra social" ng-model="vm.Data.ObraSocial" />
+                            </div>
+                        </div>
+                </div>
+                <!-- <div class="panel-footer">
+                    <h3 class="panel-title">
+                        <strong></strong>
+                    </h3>
+                    <div class="row">
+
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-centered">
+            <button class="btn btn-primary pull-right" ng-click="vm.cancel()" style="margin-right: 54px;margin-bottom: 19px;">Cerrar</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Legajos</title>
+    <div ng-include ng-controller="headerController as header" src="'app/components/main/header.html'"></div>
+</head>
+
+<body>
+    <div data-ng-init="vm.init()" class="row">
+        <div class="col-md-11 col-centered">
+            <h2>Legajos</h2>
+        </div>
+
+        <div class="col-md-11 col-centered">
+            <hr />
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="input-text-text">Buscar por legajo o apellido:</div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" id="autocomplete_legajo" style="height: 35px;width:100%;border-radius: 3px;" class="typeahead" data-provide="typeahead">
+                    </div>
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-primary" ng-click="vm.searchEmpleado()">Buscar</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-warning" style="width:100%" ng-click="vm.addEmpleado()">Agregar</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-primary" style="width:100%" ng-click="vm.editEmpleado()">Editar</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" style="width:100%" ng-click="vm.deleteEmpleado()">Borrar</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="input-text-text"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-text-error" ng-if="vm.legajoNotFound">Legajo no encontrado.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Datos personales</div>
+                <div class="panel-body collapsable">
+                    <div class="row">
+                        <div class="col-md-12 col-centered">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Legajo:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">CUIL:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Fecha de nacimiento:</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.Legajo}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.CUITCUIL}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.FechaNacimiento}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Nombre:</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.Nombre}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Teléfono:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Email:</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div id="input-celular" class="col-md-6 form-value">{{vm.data.Celular}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.EMail}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Empresa</div>
+                <div class="panel-body collapsable">
+                    <div class="row">
+                        <div class="col-md-12 col-centered">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Categoria:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Convenio:</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.Categoria}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.Convenio}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Modalidad:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Jornada:</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.Modalidad}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.Jornada}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Fecha de ingreso:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Fecha de egreso:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Motivo:</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.FechaIngreso}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.FechaEgreso}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.MotivoEgreso}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">Obra social:</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-label">¿Jubilado?</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value">{{vm.data.ObraSocial}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6 form-value" ng-if="vm.data && vm.data.Jubilado">Sí</div>
+                                        <div class="col-md-6 form-value" ng-if="vm.data && !vm.data.Jubilado">No</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

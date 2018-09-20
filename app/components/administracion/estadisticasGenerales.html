@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Estadística general</title>
+    <div ng-include ng-controller="headerController as header" src="'app/components/main/header.html'"></div>
+</head>
+
+<body>
+    <div data-ng-init="vm.init()" class="row">
+        <div class="col-md-11 col-centered">
+            <h2>Estadística general</h2>
+        </div>
+        <div class="col-md-11 col-centered">
+
+            <div class="row">
+                <div class="col-md-3 stats">
+                    <div class="nomina-activa">
+                        <div class="row"><div class="stats-number col-centered">{{vm.empleadoNumber}}</div></div>
+                        <div class="row"><div class="stats-text col-centered">NÓMINA ACTIVA</div></div>   
+                    </div>
+                </div>
+                <div class="col-md-3 stats">
+                    <div class="ausencias-ano">
+                        <div class="stats-number">{{vm.ausentismoNumber}}</div>
+                        <div class="stats-text">AUSENCIAS EN EL AÑO</div>
+                    </div>
+                </div>
+                <div class="col-md-3 stats">
+                    <div class="salario-promedio">
+                        <div class="stats-number">$16500</div>
+                        <div class="stats-text">SALARIO PROMEDIO</div>
+                    </div>
+                </div>
+                <div class="col-md-3 stats">
+                    <div class="etc">
+                        <div class="row"><div class="stats-number">--</div></div>
+                        <div class="row"><div class="stats-text centered"></div></div>                        
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>

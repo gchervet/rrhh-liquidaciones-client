@@ -1987,4 +1987,4 @@ a};n.prototype.attachEventHandlers=function(a,g){this.eventHandlers[a]||(this.ev
 !1!==e.hasInteractiveLegend&&!1!==e.highlightEnabled&&g.applyEffect(e,b,!1)});g.attachEventHandlers("legenditemclicked",function(a,b){var e=a.sender.jsVars.instanceAPI;!1!==e.hasInteractiveLegend&&!1!==e.highlightEnabled&&g.applyEffect(e,b,!0)});Q.register("highlightEffect",{name:"fadeout",area:m.area,radar:m.area,bubble:m.bubble,pie2d:m.pie,line:m.line,spline:m.line,areaspline:m.area,pie3d:m.pie,zoomline:m.line,funnel:m.funnelpyramid,pyramid:m.funnelpyramid,scatter:m.line,doughnut2d:m.pie,doughnut3d:m.pie,
 heatmap:m.heatmap,boxandwhisker2d:m.boxandwhisker2d,multiaxisline:m.line,"default":m["default"]})}]);Rb&&(Ab.FusionCharts=Q);return Q});
 
-//# sourceMappingURL=http://10.9.0.112:3052/3.12.2/map/eval/fusioncharts.js.map
+//# sourceMappingURL=http://localhost:3052/3.12.2/map/eval/fusioncharts.js.map
