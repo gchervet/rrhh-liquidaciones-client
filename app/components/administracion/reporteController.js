@@ -27,6 +27,8 @@ angular.module('app')
 
         reporteController.loadLists = function () {
             reporteController.loadAusentismoList();
+            reporteController.loadVacacionesList();
+            //reporteController.loadBajasList();
         }
 
         reporteController.loadAusentismoList = function () {
@@ -54,6 +56,33 @@ angular.module('app')
 
             };
             process_getAusentismoList_request();
+        }
+
+        reporteController.loadVacacionesList = function () {
+
+            var process_getVacacionesList_request = function () {
+                utilityService.callSecureHttp({
+                    method: "GET",
+                    url: "secure-api/Vacaciones/GetAll/",
+                    callbackSuccess: success_getVacacionesList_Request,
+                    callbackError: success_getVacacionesList_Request
+                });
+            };
+
+            var success_getVacacionesList_Request = function (response) {
+
+                if (response.data) {
+
+                    if (Array.isArray(response.data)) {
+                        $('#vacacionesList_ResultTable').bootstrapTable();
+                        $('#vacacionesList_ResultTable').bootstrapTable('load', {
+                            data: response.data
+                        });
+                    }
+                }
+
+            };
+            process_getVacacionesList_request();
         }
         
     });

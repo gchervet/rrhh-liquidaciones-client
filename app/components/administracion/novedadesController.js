@@ -26,34 +26,90 @@ angular.module('app')
         };
 
         novedadesController.loadLists = function () {
-            novedadesController.loadAusentismoList();
+            novedadesController.loadSueldoList();
+            novedadesController.loadVacacionesList();
+            novedadesController.loadLicenciaList();
         }
 
-        novedadesController.loadAusentismoList = function () {
+        novedadesController.loadSueldoList = function () {
 
-            var process_getAusentismoList_request = function () {
+            var process_getSueldoList_request = function () {
                 utilityService.callSecureHttp({
                     method: "GET",
-                    url: "secure-api/Ausentismo/GetAll/",
-                    callbackSuccess: success_getAusentismoList_Request,
-                    callbackError: success_getAusentismoList_Request
+                    url: "secure-api/Sueldo/GetAll/",
+                    callbackSuccess: success_getSueldoList_Request,
+                    callbackError: success_getSueldoList_Request
                 });
             };
 
-            var success_getAusentismoList_Request = function (response) {
+            var success_getSueldoList_Request = function (response) {
 
                 if (response.data) {
 
                     if (Array.isArray(response.data)) {
-                        $('#ausentismoList_ResultTable').bootstrapTable();
-                        $('#ausentismoList_ResultTable').bootstrapTable('load', {
+                        $('#sueldoList_ResultTable').bootstrapTable();
+                        $('#sueldoList_ResultTable').bootstrapTable('load', {
                             data: response.data
                         });
                     }
                 }
 
             };
-            process_getAusentismoList_request();
+            process_getSueldoList_request();
+        }
+
+        novedadesController.loadVacacionesList = function () {
+
+            var process_getVacacionesList_request = function () {
+                utilityService.callSecureHttp({
+                    method: "GET",
+                    url: "secure-api/Vacaciones/GetAll/",
+                    callbackSuccess: success_getVacacionesList_Request,
+                    callbackError: success_getVacacionesList_Request
+                });
+            };
+
+            var success_getVacacionesList_Request = function (response) {
+
+                if (response.data) {
+
+                    if (Array.isArray(response.data)) {
+                        $('#vacacionesList_ResultTable').bootstrapTable();
+                        $('#vacacionesList_ResultTable').bootstrapTable('load', {
+                            data: response.data
+                        });
+                    }
+                }
+
+            };
+            process_getVacacionesList_request();
+        }
+
+        novedadesController.loadLicenciaList = function () {
+
+            var process_getLicenciaList_request = function () {
+                utilityService.callSecureHttp({
+                    method: "GET",
+                    url: "secure-api/Licencias/GetAll/",
+                    callbackSuccess: success_getLicenciaList_Request,
+                    callbackError: success_getLicenciaList_Request
+                });
+            };
+
+            var success_getLicenciaList_Request = function (response) {
+
+                if (response.data) {
+
+                    if (Array.isArray(response.data)) {
+                        $('#licenciaList_ResultTable').bootstrapTable();
+                        $('#licenciaList_ResultTable').bootstrapTable('load', {
+                            data: response.data
+                        });
+                    }
+                }
+
+            };
+            process_getLicenciaList_request();
         }
         
     });
