@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('legajosController', function ($rootScope, Auth, utilityService, $uibModal, $scope) {
+    .controller('legajosController', function ($rootScope, Auth, utilityService, $uibModal, $scope, datetimeService) {
 
         var legajosController = this;
 
@@ -12,6 +12,7 @@ angular.module('app')
         // Setting text items    
         legajosController.legajoSearchText = null;
         legajosController.legajoSearchList = [];
+        legajosController.empleadoSelected = undefined;
 
         legajosController.init = function () {
             Auth.tokenCookieExists();
@@ -58,6 +59,8 @@ angular.module('app')
                             }
                             else {
                                 legajosController.data = response.data[0];
+                                legajosController.empleadoSelected = response.data[0];
+                                legajosController.empleadoSelected.FechaNacimientoStr = datetimeService.getStringDate(legajosController.empleadoSelected.FechaNacimiento);
                             }
 
                         }
@@ -114,87 +117,39 @@ angular.module('app')
                 legajosController.searchEmpleadoLegajoAndNombre()
             });
 
-            modalInstance.result.then(function () { });
+            modalInstance.result.then(function () { 
+                legajosController.searchEmpleadoLegajoAndNombre();
+                legajosController.searchEmpleado();
 
-            /*
-            var process_addEmpleado_request = function () {
-                utilityService.callSecureHttp({
-                    method: "GET",
-                    url: "secure-api/Empleado/GetNombreAndLegajo/",
-                    callbackSuccess: success_addEmpleado_Request,
-                    callbackError: success_addEmpleado_Request
-                });
-            };
-
-            var success_addEmpleado_Request = function (response) {
-
-                if (response.data) {
-                    response.data.forEach(function (element) {
-                        legajosController.legajoSearchList.push({
-                            id: element.Legajo,
-                            name: element.LegajoAndNombre
-                        })
-                        legajosController.loadAutoComplete();
-                    });
-                }
-
-            };
-            process_addEmpleado_request();
-            */
+            });
         }
 
         legajosController.editEmpleado = function () {
 
-            var process_editEmpleado_request = function () {
-                utilityService.callSecureHttp({
-                    method: "GET",
-                    url: "secure-api/Empleado/GetNombreAndLegajo/",
-                    callbackSuccess: success_editEmpleado_Request,
-                    callbackError: success_editEmpleado_Request
-                });
-            };
-
-            var success_editEmpleado_Request = function (response) {
-
-                if (response.data) {
-                    response.data.forEach(function (element) {
-                        legajosController.legajoSearchList.push({
-                            id: element.Legajo,
-                            name: element.LegajoAndNombre
-                        })
-                        legajosController.loadAutoComplete();
-                    });
+            legajosController.empleadoSelected.action = "Editar ";
+            var modalInstance = $uibModal.open({
+                templateUrl: 'app/components/administracion/modal/popupEmpleado.html',
+                controller: 'popupEmpleadoController as vm',
+                backdrop: 'static',
+                size: 'lg',
+                resolve: {
+                    data: legajosController.empleadoSelected
                 }
+            });
 
-            };
-            process_editEmpleado_request();
+            $("#assign_modal").on("hidden", function () {
+                legajosController.searchEmpleadoLegajoAndNombre()
+            });
+
+            modalInstance.result.then(function () { 
+                legajosController.searchEmpleadoLegajoAndNombre();
+                legajosController.searchEmpleado();
+            });
+
         }
 
         legajosController.deleteEmpleado = function () {
 
-            var process_deleteEmpleado_request = function () {
-                utilityService.callSecureHttp({
-                    method: "GET",
-                    url: "secure-api/Empleado/GetNombreAndLegajo/",
-                    callbackSuccess: success_deleteEmpleado_Request,
-                    callbackError: success_deleteEmpleado_Request
-                });
-            };
-
-            var success_deleteEmpleado_Request = function (response) {
-
-                if (response.data) {
-                    response.data.forEach(function (element) {
-                        legajosController.legajoSearchList.push({
-                            id: element.Legajo,
-                            name: element.LegajoAndNombre
-                        })
-                        legajosController.loadAutoComplete();
-                    });
-                }
-
-            };
-            process_deleteEmpleado_request();
         }
 
         /* COMPONENTS */

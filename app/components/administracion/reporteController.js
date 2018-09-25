@@ -13,6 +13,10 @@ angular.module('app')
 
         // Setting text items    
         reporteController.legajoSearchText = null;
+        
+        $('#ausentismoList_ResultTable').bootstrapTable();
+        $('#vacacionesList_ResultTable').bootstrapTable();
+        $('#bajasList_ResultTable').bootstrapTable();
 
         reporteController.init = function () {
 

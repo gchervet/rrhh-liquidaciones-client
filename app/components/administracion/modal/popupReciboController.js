@@ -151,7 +151,6 @@ angular.module('app')
         }
 
         popupReciboController.SavePDF = function (reciboEl) {
-            debugger;
             if (reciboEl) {
 
             }

@@ -20,47 +20,84 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <strong>{{vm.action}} empleado</strong>
+                        <strong>
+                            <h3>{{vm.action}} empleado</h3>
+                        </strong>
                     </h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6">
                             <h4>Legajo</h4>
-                            <input type="text" class="modal-input-text" placeholder="Legajo" ng-model="vm.Data.Legajo" />
+                            <input type="text" class="modal-input-text" placeholder="Legajo" ng-disabled="vm.actionId != 'A'" ng-model="vm.Data.Legajo" />
                         </div>
                         <div class="col-md-6">
                             <h4>CUIL / CUIT</h4>
-                            <input type="text" class="modal-input-text" placeholder="CUIL / CUIT" ng-model="vm.Data.CUILCUIT" />
+                            <input type="text" class="modal-input-text" placeholder="CUIL / CUIT" ng-model="vm.Data.CUITCUIL" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <h4>Nombre completo</h4>
-                            <input type="text" class="modal-input-text" placeholder="Nombre completo" ng-model="vm.Data.NombreCompleto" />
+                            <input type="text" class="modal-input-text" placeholder="Nombre completo" ng-model="vm.Data.Nombre" />
                         </div>
                         <div class="col-md-6">
                             <h4>Fecha de nacimiento</h4>
-                            <input type="text" class="modal-input-text" placeholder="Fecha de nacimiento" ng-model="vm.Data.FechaNacimiento" />
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span>Día:</span>
+                                    <select class="form-control" style="width: 93%;" ng-model="vm.DaySelected">
+                                        <option ng-repeat="day in vm.DaysOnMonth" value="{{day}}">{{day}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5">
+                                    <span>Mes:</span>
+                                    <select class="form-control" id="monthSelector" style="width: 93%;" ng-change="vm.getDayOnMonthList()"
+                                        ng-model="vm.MonthSelected">
+                                        <option ng-repeat="month in vm.MonthList" value="{{month.value}}">{{month.name}}</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <span>Año:</span>
+                                    <select class="form-control" ng-model="vm.YearSelected">
+                                        <option ng-repeat="year in vm.YearList" value="{{year}}">{{year}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Sexo</h4>
+                            <select class="form-control" style="width: 93%;" ng-model="vm.Data.Sexo">
+                                <option>M</option>
+                                <option>F</option>
+                            </select>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                            <div class="col-md-6">
-                                <h4>Teléfono</h4>
-                                <input type="text" class="modal-input-text" placeholder="Teléfono" ng-model="vm.Data.Telefono" />
-                            </div>
+                        <div class="col-md-6">
+                            <h4>Teléfono</h4>
+                            <input type="text" class="modal-input-text" placeholder="Teléfono" ng-model="vm.Data.Fono" />
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Celular</h4>
+                            <input type="text" class="modal-input-text" placeholder="Teléfono" ng-model="vm.Data.Celular" />
+                        </div>
+                    </div>
+                    <div class="row">
                             <div class="col-md-6">
                                 <h4>E-mail</h4>
-                                <input type="text" class="modal-input-text" placeholder="Email" ng-model="vm.Data.Email" />
+                                <input type="text" class="modal-input-text" placeholder="Email" ng-model="vm.Data.EMail" />
                             </div>
+                        <div class="col-md-6">
+                            <h4>Obra social</h4>
+                            <input type="text" class="modal-input-text" placeholder="Obra social" ng-model="vm.Data.ObraSocial" />
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>Obra social</h4>
-                                <input type="text" class="modal-input-text" placeholder="Obra social" ng-model="vm.Data.ObraSocial" />
-                            </div>
-                        </div>
+                    </div>
                 </div>
                 <!-- <div class="panel-footer">
                     <h3 class="panel-title">
@@ -75,8 +112,11 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12 col-centered">
-            <button class="btn btn-primary pull-right" ng-click="vm.cancel()" style="margin-right: 54px;margin-bottom: 19px;">Cerrar</button>
+        <div class="col-md-10 col-centered">
+            <button class="btn btn-primary pull-right" ng-click="vm.saveChanges()">Aceptar</button>
+        </div>
+        <div class="col-md-2 col-centered">
+            <button class="btn btn-primary pull-right" ng-click="vm.cancel()" >Cancelar</button>
         </div>
     </div>
 </body>

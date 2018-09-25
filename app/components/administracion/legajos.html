@@ -29,10 +29,10 @@
                         <button type="button" class="btn btn-warning" style="width:100%" ng-click="vm.addEmpleado()">Agregar</button>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="btn btn-primary" style="width:100%" ng-click="vm.editEmpleado()">Editar</button>
+                        <button type="button" class="btn btn-primary" style="width:100%" ng-disabled="!vm.empleadoSelected" ng-click="vm.editEmpleado()">Editar</button>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="btn btn-danger" style="width:100%" ng-click="vm.deleteEmpleado()">Borrar</button>
+                        <button type="button" class="btn btn-danger" style="width:100%" ng-disabled="!vm.empleadoSelected" ng-click="vm.deleteEmpleado()">Borrar</button>
                     </div>
                 </div>
                 <div class="row">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <div class="col-md-6 form-value">{{vm.data.FechaNacimiento}}</div>
+                                        <div class="col-md-6 form-value">{{vm.empleadoSelected.FechaNacimientoStr}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <div id="input-celular" class="col-md-6 form-value">{{vm.data.Celular}}</div>
+                                        <div id="input-celular" class="col-md-6 form-value">{{vm.data.Telefono}}</div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
